@@ -47,7 +47,7 @@ jobs:
           script: |
             docker stop recomendacoes
             docker rm --force recomendacoes
-            docker run  -d -p 8080:8080 --name recomendacoes larinhazzz/recomendacoes-ci:${{ github.sha }}
+            docker run  -d -p 8081:8080 --name recomendacoes larinhazzz/recomendacoes-ci:${{ github.sha }}
 
 
 
