@@ -1,21 +1,36 @@
 # Acessor de Investimentos - Recomendacoes
 
-Projeto Spring Boot basico com uma rota REST de Hello World.
+Servico Spring Boot responsavel por manter ativos disponiveis e gerar recomendacoes
+compativeis com o perfil do investidor.
 
-## Como rodar
+## Principais endpoints
+
+```text
+GET  /assets
+GET  /assets/{ticker}
+POST /assets
+PUT  /assets/{ticker}
+
+POST /recommendations/{userId}/generate
+GET  /recommendations/{userId}
+```
+
+## Configuracao
+
+```properties
+DB_HOST=localhost
+DB_NAME=recomendacoesdb
+DB_USER=postgres
+DB_PASSWORD=postgres
+PERFIL_SERVICE_URL=http://localhost:8081
+```
+
+## Testes
 
 ```bash
-mvn spring-boot:run
+mvn verify
 ```
 
-Depois acesse:
-
-```text
-GET http://localhost:8080/hello
-```
-
-Resposta:
-
-```text
-Hello World
-```
+O relatorio JaCoCo e gerado em `tests/`, seguindo o mesmo padrao usado no
+repositorio de pagamentos. O build exige pelo menos 80% de cobertura de
+instrucoes no projeto e em cada classe do pacote `service`.
