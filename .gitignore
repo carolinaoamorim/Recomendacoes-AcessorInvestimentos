@@ -21,6 +21,7 @@
 
 # Build output
 target/
+tests/
 
 # IDE files
 .idea/
